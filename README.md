@@ -1,3 +1,11 @@
+# About Project
+This repo is about showcasing the use of HOC and GraphQL API in the React project. This app has the integration of Appolo client to consume GrpahQL API. 
+
+# Project link
+Check the project live here Open[https://adighate10.github.io/atlas/] (https://adighate10.github.io/atlas/).
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
