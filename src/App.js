@@ -1,26 +1,37 @@
-import './App.css';
-import WithQuery from './hoc/WithQuery'
+import "./App.css";
+import WithQuery from "./hoc/WithQuery";
 
-import Countries from './components/Countries';
-import Languages from './components/Languages';
+import Countries from "./components/Countries";
+import CountryDetails from "./components/CountryDetails";
 
-import {LANGUAGE_QUERY, COUNTRIES_QUERY} from "./queries"
+import { COUNTRY_DETAILS_QUERY, COUNTRIES_QUERY } from "./queries";
+import { useCallback, useState } from "react";
+
+const WithCountryQuery = WithQuery(Countries, COUNTRIES_QUERY);
+const WithStatesQuery = WithQuery(CountryDetails, COUNTRY_DETAILS_QUERY);
 
 function App() {
-  const WithCountryQuery = WithQuery(Countries, COUNTRIES_QUERY);
-  const WithLanguageQuery = WithQuery(Languages, LANGUAGE_QUERY);
+  const [country, setCountry] = useState(undefined);
+
+  const updateCountry = useCallback((item) => {
+    setCountry(item);
+  }, []);
+
   return (
-    <>
-      <header className='Header'>
-        <h1> List of Countries and Languages Worldwide </h1>
-      </header>
-      <div className='App'>
-        <WithCountryQuery />
-        <WithLanguageQuery />
+    <div className="Main">
+      <div className="Header">
+        <b> List of Countries and States </b>
       </div>
-    </>
-    
-  )
+      <div className="App">
+        <WithCountryQuery onCountrySelect={updateCountry} country={country} />
+        <WithStatesQuery
+          variables={
+            country ? { variables: { code: country.code } } : undefined
+          }
+        />
+      </div>
+    </div>
+  );
 }
 
 export default App;
