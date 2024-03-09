@@ -1,4 +1,4 @@
-import {COUNTRIES_QUERY} from "./countries";
-import {LANGUAGE_QUERY} from "./languages";
+import { COUNTRIES_QUERY } from "./countries";
+import { COUNTRY_DETAILS_QUERY } from "./countryDetails";
 
-export {COUNTRIES_QUERY, LANGUAGE_QUERY};
+export { COUNTRIES_QUERY, COUNTRY_DETAILS_QUERY };

@@ -1,45 +1,164 @@
 .App {
   display: flex;
 }
+.Main {
+  display: block;
+}
 
 .Header {
-  height: 10vh;
+  padding: 2em 0em;
   width: 99.5vw;
   z-index: 100;
   background-color: skyblue;
   border: solid 0.2em black;
   border-radius: 0.5em;
-  position: sticky; top: 0;
-  h1 {
-    text-align: center;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  b {
+    font-size: xx-large;
+    justify-items: center;
+    width: 100%;
+    text-align-last: center;
   }
+}
+
+.errorBox {
+  border: solid 0.2em red;
+  border-radius: 0.5em;
+  padding: 0.5em 1em 0.5em 1em;
+  position: relative;
+  margin: 1em;
 }
 
 .ListBox {
   width: 50vw;
+  height: 83vh;
   h1 {
     margin: 0.5em;
+    text-align: center;
   }
-  ul {
+  .box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+  .scrollbox {
     border: solid 0.2em skyblue;
     border-radius: 0.5em;
-    padding: 0.5em 1em 0.5em 1.0em;
+    padding: 0.5em 1em 0.5em 1em;
     position: relative;
     margin: 1em;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1em 2em;
+    height: 100%;
+    overflow-y: scroll;
   }
-  ul li { 
+  p {
+    border: solid 0.2em skyblue;
+    border-radius: 0.5em;
+    padding: 0.5em 1em 0.5em 1em;
+    position: relative;
+    margin: 1em;
+  }
+  ul {
+    display: grid;
+    padding-left: 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em 1em;
+  }
+  ul li {
     line-height: 1.5;
-    list-style-type: none!important;
+    list-style-type: none !important;
   }
   ul li::before {
-    content: "\2022";;
-    display: inline-block; width: 0.6em;
+    content: "\2022";
+    display: inline-block;
+    width: 0.6em;
   }
 }
- 
+
+.button {
+  height: 4em;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #0d6efd;
+  border-color: #0d6efd;
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+.button input[type="radio"] {
+  opacity: 0.011;
+  display: none;
+}
+
+.button input[type="radio"]:checked + label {
+  background: #0d6efd;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.button label {
+  cursor: pointer;
+  /* width: -webkit-fill-available;
+  height: -webkit-fill-available; */
+}
+
+.listButton {
+  cursor: pointer;
+  outline: 0;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  color: #0d6efd;
+  border-color: #0d6efd;
+  :hover {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+  }
+}
+.listButtonSelected {
+  cursor: pointer;
+  outline: 0;
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  :hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+  }
+}
 .Search {
   padding: 1em;
   input {
@@ -51,16 +170,17 @@
     border-width: 0.2em;
     border-style: solid;
     box-sizing: border-box;
-    transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
-    line-height: 1.5; 
+    transition: background-color 0.2s ease-in-out 0s,
+      border-color 0.2s ease-in-out 0s;
+    line-height: 1.5;
     width: 100%;
     height: 3em;
-    :hover{
-        background-color: rgb(235, 236, 240);
+    :hover {
+      background-color: rgb(235, 236, 240);
     }
-    :focus{
-        background-color: rgb(255, 255, 255);
-        border-color: rgb(76, 154, 255);
+    :focus {
+      background-color: rgb(255, 255, 255);
+      border-color: rgb(76, 154, 255);
     }
   }
 }
@@ -69,29 +189,71 @@
   .App {
     display: block;
   }
-  
-  .ListBox {
-    width: 100vw;
-    h1 {
-      margin: 1em;
-    }
-    ul {
-      border: solid 0.2em skyblue;
-      border-radius: 0.5em;
-      padding: 0.5em 1em 0.5em 1.0em;
-      position: relative;
-      margin: 1em;
-      display: grid;
-      grid-template-columns: auto auto 1fr;
-      grid-gap: 0 2em;
-    }
-    ul li { 
-      line-height: 1.5;
-      list-style-type: none!important;
-    }
-    ul li::before {
-      content: "\2022";;
-      display: inline-block; width: 0.6em;
+
+  .Header {
+    padding: 0em 0em;
+    height: 10vh;
+    width: 99.5vw;
+    z-index: 100;
+    background-color: skyblue;
+    border: solid 0.2em black;
+    border-radius: 0.5em;
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 0;
+    b {
+      font-size: x-large;
+      justify-items: center;
+      width: 100%;
+      text-align-last: center;
     }
   }
+
+  .ListBox {
+    width: 99.6vw;
+    height: 45vh;
+    border: solid 0.2em black;
+    border-radius: 0.5em;
+    h1 {
+      margin: 0.5em;
+    }
+    p {
+      border: solid 0.2em skyblue;
+      border-radius: 0.5em;
+      padding: 0.5em 1em 0.5em 1em;
+      position: relative;
+      margin: 1em;
+    }
+    .box {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+    }
+    .scrollbox {
+      border: solid 0.2em skyblue;
+      border-radius: 0.5em;
+      padding: 0.5em 1em 0.5em 1em;
+      margin: 1em;
+      overflow-y: scroll;
+    }
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    ul li {
+      line-height: 1.5;
+      list-style-type: none !important;
+    }
+    ul li::before {
+      content: "\2022";
+      display: inline-block;
+      width: 0.6em;
+    }
+  }
+}
+
+.Select {
+  width: 10em;
 }
